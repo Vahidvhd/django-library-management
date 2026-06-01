@@ -1,0 +1,48 @@
+{% block title %}
+Book List
+{% endblock%}
+
+
+
+
+
+{% block content%}
+<h3>Book List:</h3>
+<table>
+    <tr>
+        <th>No.</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Availability</th>
+        <th>Detail</th>
+        <th>Edit</th>
+    </tr>
+    {% for book in books %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{book.title}}</td>
+        <td>
+            {% for author in book.authors.all %}
+            {{author}}
+            {% endfor%}
+        </td>
+        <td>
+            {% if book.is_available%}
+                <svg width="40" height="40" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="9" fill="none" stroke="green" stroke-width="2"/>
+                    <path d="M7 12.5l3 3L17 8" fill="none" stroke="green" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            {% else%}
+                <svg width="40" height="40" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="9" fill="none" stroke="red" stroke-width="2"/>
+                    <path d="M8 8l8 8M16 8l-8 8" fill="none" stroke="red" stroke-width="2.8" stroke-linecap="round"/>
+                </svg>
+            {% endif %}
+
+        </td>
+        <td><a href="/book_detail/">more detail</a></td>
+        <td>test</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
