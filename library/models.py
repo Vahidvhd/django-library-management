@@ -7,6 +7,9 @@ class Author(models.Model):
     last_name = models.CharField(max_length=50)
     age = models.PositiveIntegerField()
 
+    def book_counter(self):
+        return self.books.count()
+    
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
 
@@ -14,6 +17,7 @@ class Book(models.Model):
     title = models.CharField(max_length=200)
     authors = models.ManyToManyField(Author, related_name='books')
     published_date = models.DateField()
+    is_available = models.BooleanField(default=True)
     isbn = models.CharField(max_length=13)
 
     def __str__(self):
