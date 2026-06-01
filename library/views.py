@@ -15,3 +15,12 @@ def book_detail(request, id):
     book = Book.objects.get(id=id)
     context = {'book': book}
     return render(request, 'library/book_detail.html', context)
+
+
+def book_add_edit(request, id=None):
+    if id:
+        book = Book.objects.get(id=id)
+    else:
+        book = None
+    context = {'book': book}
+    return render(request, 'library/book_form.html', context)

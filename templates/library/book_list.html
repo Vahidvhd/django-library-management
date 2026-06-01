@@ -7,7 +7,7 @@ Book List
 
 
 {% block content%}
-<h3>Book List:</h3>
+<h3>Book List:</h3> <a href="{% url 'book_add_edit' %}">add book</a>
 <table>
     <tr>
         <th>No.</th>
@@ -40,8 +40,8 @@ Book List
             {% endif %}
 
         </td>
-        <td><a href="{% url 'book_detail' book.id%}">detail</a></td>
-        <td>test</td>
+        <td><a href="{% url 'book_detail' book.id %}">detail</a></td>
+        <td><a href="{% url 'book_add_edit' book.id %}">edit</a></td>
     </tr>
     {% endfor %}
 </table>
