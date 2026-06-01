@@ -40,7 +40,7 @@ Book List
             {% endif %}
 
         </td>
-        <td><a href="/book_detail/">more detail</a></td>
+        <td><a href="{% url 'book_detail' book.id%}">detail</a></td>
         <td>test</td>
     </tr>
     {% endfor %}
