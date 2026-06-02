@@ -15,6 +15,8 @@ Book Detail
     </ul>
 </h2>
 
+<h2>Published date: {{book.published_date}}</h2>
+<h2>ISBN: {{book.isbn}}</h2>
 
 <h2>Summary:</h2>
 
@@ -23,5 +25,11 @@ Book Detail
     {% else %}
         <p>No summary</p>
     {% endif %}
+
+
+
+
+
+<a href="{% url 'book_list' %}">Back to book list</a>
     
 {% endblock %}
