@@ -6,7 +6,10 @@
     <title>{% block title %}{% endblock%}</title>
 </head>
 <body>
-    <nav>navbar placeholder</nav>
+    <nav>
+        <a href="{% url 'home'%}">Home</a>
+        <a href="{% url 'book_add_edit'%}">Add Book</a>
+    </nav>
 
     {% block content%}
     {% endblock %}

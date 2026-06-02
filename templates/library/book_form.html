@@ -1,1 +1,77 @@
-<h1>this is book form {{book.title}}</h1>
+{% extends 'base.html' %}
+
+{% block title %}
+    {%  if book %}
+    Edit Book
+    {% else %}
+    Add book
+    {% endif %}
+{% endblock%}
+
+
+
+{% block content%}
+<h3>
+    {%  if book %}
+    Edit Book
+    {% else %}
+    Add book
+    {% endif %}
+</h3>
+
+<form method="post">
+    {% csrf_token %}
+    <label>Title:</label>
+    <input type="text" name='title' value='{% if book %}{{ book.title }}{% endif %}' placeholder='enter book title here'>
+
+    <br>
+
+    <label>Authors:</label>
+    <select name="authors" multiple>
+        {% for author in authors %}
+            <option value="{{author.id}}" {% if book and author in book.authors.all %}
+                selected
+            {% endif %}>
+
+            {{ author.first_name }} {{ author.last_name }}
+            </option>
+        {% endfor %}
+    </select>
+
+    <label>Published Date:</label>
+    <input type="date" name='published_date' value="{% if book %}{{ book.published_date|date:'Y-m-d' }}{% endif %}">
+
+    <br>
+
+    <label>Availability:</label>
+    <input type="checkbox" name='is_available' {% if book and book.is_available %}
+            checked
+        {% endif %} >
+
+    <br>
+
+    <label>ISBN:</label>
+    <input type="text" name="isbn" value='{% if book %}{{ book.isbn }}{% endif %}'>
+
+    <br>
+    
+    <label>Summary:</label>
+    <textarea name="summary" rows='5' cols='40'>
+        {% if book %}{{ book.summary }}{% endif %}
+    </textarea>
+
+    <button type="submit">Save</button>
+
+
+
+</form>
+
+
+{% endblock %}
+
+
+
+published_date
+is_available
+isbn
+summary
