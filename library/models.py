@@ -18,7 +18,7 @@ class Book(models.Model):
     authors = models.ManyToManyField(Author, related_name='books')
     published_date = models.DateField()
     is_available = models.BooleanField(default=True)
-    isbn = models.CharField(max_length=13)
+    isbn = models.CharField(max_length=13, unique=True)
     summary = models.TextField(blank=True, null=True)
 
 

@@ -52,16 +52,22 @@ def book_add_edit(request, id=None):
         book.authors.set(author_ids)
         return redirect('book_list')
 
-
-
-
-
-
-
-
-
-
-
-
     context = {'book': book, 'authors': authors}
     return render(request, 'library/book_form.html', context)
+
+
+def author_add(request):
+    if request.method == "POST":
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        age = request.POST.get('age')
+
+        if first_name and last_name and age:
+            Author.objects.create(
+                first_name = first_name,
+                last_name = last_name,
+                age = age
+            )
+            return redirect('author_list')
+        
+    return render(request, 'library/author_add.html')
