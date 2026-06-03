@@ -8,8 +8,13 @@ Book List
 
 
 {% block content%}
-<h3>Book List:</h3> <a href="{% url 'book_add_edit' %}">add book</a>
-<table>
+<div class="book-list-card">
+    <div class="list-header">
+        <h3>Book List:</h3>
+        <a href="{% url 'book_add_edit' %}" class="add-book-btn">add book</a>
+    </div>
+<div class="table-wrapper">
+    <table class="book-table">
     <tr>
         <th>No.</th>
         <th>Title</th>
@@ -46,4 +51,6 @@ Book List
     </tr>
     {% endfor %}
 </table>
+</div>
+</div>
 {% endblock %}
