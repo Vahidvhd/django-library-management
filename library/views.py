@@ -71,3 +71,10 @@ def author_add(request):
             return redirect('author_list')
         
     return render(request, 'library/author_add.html')
+
+
+def author_list(request):
+    authors_list = Author.objects.all()
+    context = {'authors': authors_list}
+
+    return render(request, 'library/authors_list.html', context)
