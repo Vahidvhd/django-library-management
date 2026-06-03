@@ -1,20 +1,33 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock%}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
+    
     <nav>
-        <a href="{% url 'home'%}">Home</a>
-        <a href="{% url 'book_list'%}">Books</a>
-        <a href="{% url 'book_add_edit'%}">Add Book</a>
-        <a href="{% url 'author_list'%}">Authors</a>
-        <a href="{% url 'author_add' %}">Add Author</a>
+            <div class='nav-logo'>
+                <h1><a href="{% url 'home'%}">Library</a></h1>
+            </div>
+            <div class='nav-links'>
+                <a href="{% url 'home'%}">Home</a>
+                <a href="{% url 'book_list'%}">Books</a>
+                <a href="{% url 'book_add_edit'%}">Add Book</a>
+                <a href="{% url 'author_list'%}">Authors</a>
+                <a href="{% url 'author_add' %}">Add Author</a>
+            </div>     
     </nav>
-
-    {% block content%}
+    {% block hero %}
     {% endblock %}
+
+    <main class='container'>
+        {% block content%}
+        {% endblock %}
+    </main>
 </body>
 </html>
