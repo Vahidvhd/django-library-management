@@ -22,6 +22,7 @@ Book List
         <th>Availability</th>
         <th>Detail</th>
         <th>Edit</th>
+        <th>Delete</th>
     </tr>
     {% for book in books %}
     <tr>
@@ -48,6 +49,7 @@ Book List
         </td>
         <td><a href="{% url 'book_detail' book.id %}">detail</a></td>
         <td><a href="{% url 'book_add_edit' book.id %}">edit</a></td>
+        <td><a href="{% url 'book_delete' book.id %}" onclick="return confirm('Are you sure you want to delete this book?')">delete</a></td>
     </tr>
     {% endfor %}
 </table>

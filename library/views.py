@@ -78,3 +78,8 @@ def author_list(request):
     context = {'authors': authors_list}
 
     return render(request, 'library/authors_list.html', context)
+
+def book_delete(request, id):
+    book = Book.objects.get(id=id)
+    book.delete()
+    return redirect('book_list')
