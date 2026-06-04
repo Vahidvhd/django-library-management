@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.exceptions import ValidationError
+from django.utils import timezone
 
 # Create your models here.
 class Author(models.Model):
@@ -20,13 +21,17 @@ class Book(models.Model):
     is_available = models.BooleanField(default=True)
     isbn = models.CharField(max_length=13, unique=True)
     summary = models.TextField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
 
     def __str__(self):
         return self.title
     
     def clean(self):
-        if len(self.isbn) != 13 or not self.isbn.isdigit():
+        if self.isbn and len(self.isbn) != 13 or not self.isbn.isdigit():
             raise ValidationError({'isbn':'Invalid ISBN'})
+        if self.published_date and self.published_date > timezone.now().date():
+            raise ValidationError({'published_date': 'Published date cannot be in the future.'})
 
     
