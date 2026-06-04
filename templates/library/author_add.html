@@ -7,20 +7,19 @@ Add Author
 
 
 {% block content%}
-<form method= "POST">
-    {% csrf_token %}
-    <label>First Name:</label>
-    <input type="text" name='first_name'>
+<div class="form-card">
+    <form method= "POST">
+        {% csrf_token %}
+        <label>First Name:</label>
+        <input type="text" name='first_name'>
 
-    <label>Last Name:</label>
-    <input type="text" name='last_name'>
+        <label>Last Name:</label>
+        <input type="text" name='last_name'>
 
-    <label>Age:</label>
-    <input type="number" name='age'>
-    <br>
-    <button type='submit'>Save</button>
-
-
-
-</form>
+        <label>Age:</label>
+        <input type="number" name='age'>
+        <br>
+        <button type='submit'>Save</button>
+    </form>
+</div>
 {% endblock %}

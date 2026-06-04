@@ -8,23 +8,34 @@ Book List
 
 
 {% block content%}
-<h3>Book List:</h3> <a href="{% url 'author_add' %}">add author</a>
-<table>
-    <tr>
-        <th>No.</th>
-        <th>First name</th>
-        <th>Last name</th>
-        <th>age</th>
-        <th>Number of Books</th>
-    </tr>
-    {% for author in authors %}
-    <tr>
-        <td>{{forloop.counter}}</td>
-        <td>{{author.first_name}}</td>
-        <td>{{author.last_name}}</td>
-        <td>{{author.age}}</td>
-        <td>{{author.book_counter}}</td>
-    </tr>
-    {% endfor %}
-</table>
+
+<div class="list-card">
+    <div class="list-header">
+        <h3>Author List:</h3>
+        <a href="{% url 'author_add' %}" class="add-btn">add author</a>
+    </div>
+
+
+    <div class="table-wrapper">
+        <table class="data-table">
+            <tr>
+                <th>No.</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>age</th>
+                <th>Number of Books</th>
+            </tr>
+            {% for author in authors %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{author.first_name}}</td>
+                <td>{{author.last_name}}</td>
+                <td>{{author.age}}</td>
+                <td>{{author.book_counter}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
 {% endblock %}
