@@ -291,7 +291,7 @@ list-card {
 
 .form-row label {
     width: 130px;
-    font-size: 18px;
+    font-size: 19px;
     font-weight: 600;
 }
 
@@ -320,6 +320,98 @@ list-card {
     font-weight: 600;
     cursor: pointer;
     transition: 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: #000;
+}
+
+
+
+/*  */
+.book-form {
+    max-width: 900px;
+}
+
+.book-form h3 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 35px;
+}
+
+.form-line {
+    display: flex;
+    gap: 26px;
+    margin-bottom: 24px;
+}
+
+.form-field {
+    margin-bottom: 24px;
+}
+
+.form-line .form-field {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+.inline-field {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.form-field label {
+    font-size: 19px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.inline-field label {
+    margin-bottom: 0;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: none;
+    border-radius: 18px;
+    font-size: 17px;
+    outline: none;
+    background: white;
+}
+
+.inline-field input {
+    flex: 1;
+}
+
+.form-field select {
+    min-height: 58px;
+}
+
+.form-field textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.availability-field input {
+    width: 24px;
+    height: 24px;
+    flex: unset;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px 22px;
+    border: none;
+    border-radius: 999px;
+    background: #393939;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
 }
 
 .submit-btn:hover {
