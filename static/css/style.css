@@ -417,3 +417,71 @@ list-card {
 .submit-btn:hover {
     background: #000;
 }
+
+
+
+/* book detail */
+.detail-card {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 30px 40px;
+}
+
+.detail-card h2 {
+    text-align: center;
+    font-size: 42px;
+    margin-bottom: 30px;
+}
+
+.detail-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+    padding: 14px 18px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.detail-row span,
+.summary-box span {
+    width: 180px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.detail-row p {
+    font-size: 20px;
+}
+
+.summary-box {
+    margin-top: 20px;
+    padding: 18px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.summary-box span {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.summary-box p {
+    font-size: 19px;
+    line-height: 1.6;
+}
+
+.back-btn {
+    display: inline-block;
+    margin-top: 24px;
+    padding: 12px 24px;
+    border-radius: 999px;
+    background: #393939;
+    color: white;
+    font-weight: 700;
+    transition: 0.2s ease;
+}
+
+.back-btn:hover {
+    background: #000;
+}

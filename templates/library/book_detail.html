@@ -1,35 +1,47 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
 
 {% block title %}
 Book Detail
-{% endblock%}
+{% endblock %}
 
+{% block content %}
+<div class="detail-card">
+    <h2>Book Details</h2>
 
-{% block content%}
-<h2>Book Title: {{book.title}} </h2>
-<h2>Author: 
-    <ul>  
-        {% for author in book.authors.all %}
-            <li>{{author}}</li>
-        {% endfor %}
-    </ul>
-</h2>
+    <div class="detail-row">
+        <span>Title</span>
+        <p>{{ book.title }}</p>
+    </div>
 
-<h2>Published date: {{book.published_date}}</h2>
-<h2>ISBN: {{book.isbn}}</h2>
+    <div class="detail-row">
+        <span>Author</span>
+        <p>
+            {% for author in book.authors.all %}
+                {{ author }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </p>
+    </div>
 
-<h2>Summary:</h2>
+    <div class="detail-row">
+        <span>Published Date</span>
+        <p>{{ book.published_date }}</p>
+    </div>
 
-    {% if book.summary %}
-        <p>{{ book.summary }}</p>
-    {% else %}
-        <p>No summary</p>
-    {% endif %}
+    <div class="detail-row">
+        <span>ISBN</span>
+        <p>{{ book.isbn }}</p>
+    </div>
 
+    <div class="summary-box">
+        <span>Summary</span>
 
+        {% if book.summary %}
+            <p>{{ book.summary }}</p>
+        {% else %}
+            <p>No summary</p>
+        {% endif %}
+    </div>
 
-
-
-<a href="{% url 'book_list' %}">Back to book list</a>
-    
+    <a class="back-btn" href="{% url 'book_list' %}">Back to book list</a>
+</div>
 {% endblock %}
