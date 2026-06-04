@@ -8,18 +8,24 @@ Add Author
 
 {% block content%}
 <div class="form-card">
-    <form method= "POST">
+    <form method="POST">
         {% csrf_token %}
-        <label>First Name:</label>
-        <input type="text" name='first_name'>
 
-        <label>Last Name:</label>
-        <input type="text" name='last_name'>
+        <div class="form-row">
+            <label>First Name</label>
+            <input type="text" name="first_name" placeholder="Author's first name">
+        </div>
+        <div class="form-row">
+            <label>Last Name</label>
+            <input type="text" name="last_name" placeholder="Author's last name">
+        </div>
 
-        <label>Age:</label>
-        <input type="number" name='age'>
-        <br>
-        <button type='submit'>Save</button>
+        <div class="form-row">
+            <label>Age</label>
+            <input type="number" name="age" placeholder="Author's age">
+        </div>
+        <button class="submit-btn" type="submit">Save</button>
     </form>
+
 </div>
 {% endblock %}
